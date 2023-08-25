@@ -8,9 +8,4 @@ $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 /**
  * Routes
  */
-
-// Pages
-$router->get('/', 'HomeController');
-
-// Posts
-$router->get('/posts', 'Posts/index');
+$router->get('/', 'Posts/index');

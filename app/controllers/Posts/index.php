@@ -1,3 +1,3 @@
 <?php
 
-require base_path('../views/posts/index.view.php');
+require base_path('../views/notes/index.view.php');
