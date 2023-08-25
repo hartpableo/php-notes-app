@@ -11,3 +11,4 @@ $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 $router->get('/', 'Notes/index');
 $router->get('/note', 'Notes/show');
 $router->get('/notes/create', 'Notes/create');
+$router->post('/notes/create', 'Notes/create');

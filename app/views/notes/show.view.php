@@ -1,5 +1,7 @@
 <?php
 
+get_template_part('header');
+
 $db = new Database();
 
 $current_user_id = 4;
@@ -15,3 +17,5 @@ authorize($note['user_id'] !== $current_user_id, Response::FORBIDDEN);
 <h1>Note #<?php echo $note['id']; ?></h1>
 <div class="note-content"><?php echo $note['body']; ?></div>
 <p><a href="/">Go Back</a></p>
+
+<?php get_template_part('footer'); ?>

@@ -1,5 +1,7 @@
 <?php 
 
+get_template_part('header');
+
 $db = new Database();
 
 $current_user_id = 4;
@@ -29,3 +31,5 @@ $notes = $db->query('select * from notes where user_id = :user_id', [
 <p style="display: flex;gap: 1.5em;margin-top: 3rem;">
   <a href="/notes/create"><strong>Create note</strong></a>
 </p>
+
+<?php get_template_part('footer'); ?>
