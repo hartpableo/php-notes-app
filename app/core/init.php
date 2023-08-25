@@ -11,6 +11,7 @@ spl_autoload_register(function ($className) {
 });
 
 require 'config.php';
+require 'Response.php';
 require 'functions.php';
 require 'Router.php';
 require '../app/routes.php';
