@@ -6,11 +6,9 @@ $current_user_id = 4;
 
 $note = $db->query('select * from notes where id = :id', [
   ':id' => $_GET['id'],
-])->fetch();
+])->findOrFail();
 
-if (!$note) abort(Response::NOT_FOUND);
-
-if ($note['user_id'] !== $current_user_id) abort(Response::FORBIDDEN);
+authorize($note['user_id'] !== $current_user_id, Response::FORBIDDEN);
 
 ?>
 

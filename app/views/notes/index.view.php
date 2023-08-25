@@ -2,7 +2,7 @@
 
 $db = new Database();
 
-$notes = $db->query('select * from notes')->fetchAll();
+$notes = $db->query('select * from notes')->findAll();
 
 ?>
 
