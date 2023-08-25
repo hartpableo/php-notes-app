@@ -28,3 +28,19 @@ function base_path($path = '') {
 function urlIs($value) {
   return $_SERVER['REQUEST_URI'] === $value;
 }
+
+function get_template_part($template_part) {
+  switch ($template_part) {
+    case 'header':
+      require base_path('../views/template-parts/header.php');
+      break;
+    
+    case 'footer':
+      require base_path('../views/template-parts/footer.php');
+      break;
+    
+    default:
+      echo "The template part '{$template_part}' is missing.";
+      break;
+  }
+}

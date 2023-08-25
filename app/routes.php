@@ -8,5 +8,6 @@ $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 /**
  * Routes
  */
-$router->get('/', 'Posts/index');
-$router->get('/note', 'Posts/show');
+$router->get('/', 'Notes/index');
+$router->get('/note', 'Notes/show');
+$router->get('/notes/create', 'Notes/create');

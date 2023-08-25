@@ -2,7 +2,11 @@
 
 $db = new Database();
 
-$notes = $db->query('select * from notes')->findAll();
+$current_user_id = 4;
+
+$notes = $db->query('select * from notes where user_id = :user_id', [
+  ':user_id' => $current_user_id
+])->findAll();
 
 ?>
 
@@ -21,3 +25,7 @@ $notes = $db->query('select * from notes')->findAll();
   </div>
 
 <?php endforeach; ?>
+
+<p style="display: flex;gap: 1.5em;margin-top: 3rem;">
+  <a href="/notes/create"><strong>Create note</strong></a>
+</p>
