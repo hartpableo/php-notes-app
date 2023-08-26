@@ -2,13 +2,16 @@
 
 namespace Core\Middleware;
 
+use Core\Response;
+
 class Auth 
 {
   public function handle()
   {
-    if (!$_SESSION['user'] ?? false) 
+    if (!isset($_SESSION['user'])) 
     {
-      header('location: /');
+      // header('location: /');
+      abort(Response::FORBIDDEN);
       exit();
     }
   }

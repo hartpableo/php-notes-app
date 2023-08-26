@@ -54,3 +54,7 @@ function assetPath($path_to_file) {
 function auth() {
   return $_SESSION['user'] ?? false;
 }
+
+function redirect($path) {
+  header("location: {$path}");
+}
