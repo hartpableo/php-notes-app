@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    <div><strong><u><small>simple notes app</small></u></strong></div>
+    <div><strong><u><small><a href="/" style="color: black;">simple notes app</a></small></u></strong></div>
     
     <?php if (auth()) : ?>
       <form action="/user/logout" method="POST">
