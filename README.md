@@ -7,6 +7,18 @@
 
 This is a simple notes app project implementing the MVC framework or paradigm in PHP.
 
+### Features
+
+- Register user
+- User cannot register with already existing email address
+- User login
+- User logout
+- Create note
+- Update note
+- Delete note
+- Middleware (guest and authenticated user)
+- Access only user's own notes
+
 ## Contact Author
 
 You can contact me via email: pableoh@gmail.com
