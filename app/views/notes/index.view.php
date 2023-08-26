@@ -12,6 +12,11 @@
     <a href="<?php echo "/note?id={$note['id']}"; ?>" style="display: block;">
       <?php echo htmlspecialchars($excerpt); ?>
     </a>
+    <form action="/note/delete" method="post">
+      <input type="hidden" name="id" value="<?php echo $note['id']; ?>">
+      <input type="hidden" name="_method" value="DELETE">
+      <button type="submit" style="border: 1px solid black;color: red;background: white;margin: .5em 0 0;cursor: pointer;">Delete</button>
+    </form>
   </div>
 
 <?php endforeach; ?>
