@@ -25,3 +25,6 @@ $router->patch('/note/edit', 'Notes/update')->only('auth');
 // Users
 $router->get('/user/register', 'Users/register')->only('guest');
 $router->post('/user/register', 'Users/store')->only('guest');
+$router->get('/user/login', 'Users/login')->only('guest');
+$router->post('/user/login', 'Users/authenticate')->only('guest');
+$router->post('/user/logout', 'Users/logout')->only('auth');

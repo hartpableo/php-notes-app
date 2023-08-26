@@ -6,7 +6,7 @@ use Core\Response;
 
 $db = App::resolve(Database::class);
 
-$current_user_id = 4;
+$current_user_id = getCurrentUserID();
 
 $note = $db->query('select * from notes where id = :id', [
   ':id' => $_GET['id'],

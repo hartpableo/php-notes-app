@@ -21,8 +21,8 @@
     <textarea name="body" id="body" cols="30" rows="10" placeholder="Enter note body..."><?php echo $note['body']; ?></textarea>
   </p>
   <p>
-    <input type="submit" value="Update Note">
-    <a href="/">Cancel</a>
+    <input type="submit" value="Update Note" class="btn btn--primary">
+    <a href="/" class="btn btn--secondary">Cancel</a>
   </p>
 </form>
 

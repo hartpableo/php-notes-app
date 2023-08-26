@@ -38,9 +38,10 @@
 </p>
 <?php else : ?>
   <h1>Notes App</h1>
-  <p>To take notes, login or register your account now!</p>
+  <p>Want to take notes? Login or register your account now!</p>
   <p>
-    <a href="/user/register" class="btn btn--neutral"><strong>Create Account</strong></a>
+    <a href="/user/register" class="btn btn--primary"><strong>Create Account</strong></a>
+    <a href="/user/login" class="btn btn--neutral"><strong>Login</strong></a>
   </p>
 <?php endif; ?>
 

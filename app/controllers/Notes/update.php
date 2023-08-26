@@ -7,7 +7,7 @@ use Core\Validator;
 
 $db = App::resolve(Database::class);
 
-$current_user_id = 4;
+$current_user_id = getCurrentUserID();
 
 $note = $db->query('select * from notes where id = :id', [
   ':id' => $_POST['id'],
@@ -20,7 +20,7 @@ $errors = [];
 if (!Validator::string($_POST['body'], 1, 1000)) $errors['body'] = 'A body of no more than 1000 characters is required!';
 
 if (!empty($errors)) {
-  return view('notes/show', [
+  return view('notes/edit', [
     'title' => "Note #{$note['id']}",
     'note' => $note,
     'errors' => $errors

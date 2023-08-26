@@ -57,4 +57,9 @@ function auth() {
 
 function redirect($path) {
   header("location: {$path}");
+  exit();
+}
+
+function getCurrentUserID() {
+  return $_SESSION['user']['id'] ?? null;
 }

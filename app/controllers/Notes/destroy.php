@@ -6,7 +6,7 @@ use Core\Response;
 
 $db = App::resolve(Database::class);
 
-$current_user_id = 4;
+$current_user_id = getCurrentUserID();
 
 $id = $_POST['id'];
 $method = $_POST['_method'];

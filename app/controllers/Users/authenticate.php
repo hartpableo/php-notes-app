@@ -17,8 +17,8 @@ if (!Validator::email($email)) $errors['email_error'] = 'Email is invalid!';
 if (!Validator::string($password, 7, 255)) $errors['password_error'] = 'Password is invalid!';
 
 if (!empty($errors)) {
-  return view('user/register', [
-    'title' => 'Register',
+  return view('users/login', [
+    'title' => 'Login',
     'errors' => $errors
   ]);
 }
@@ -28,17 +28,7 @@ $user = $db->query('select * from users where email = :email', [
   ':email' => $email
 ])->find();
 
-if ($user) {
-  header('location: /');
-  exit();
-} else {
-  // Register
-  $db->query('INSERT INTO users(name, email, password) VALUES(:name, :email, :password)', [
-    'name' => $name,
-    'email' => $email,
-    'password' => $password
-  ]);
-
+if (!empty($user) && $user['name'] === $name && $user['password'] === $password) {
   // Start session
   $_SESSION['user'] = [
     'id' => $user['id'],
@@ -46,7 +36,12 @@ if ($user) {
     'email' => $email,
   ];
 
-  // Redirect authenticated user
-  header("location: /");
+  redirect('/');
+  exit();
+} else {
+  return view('users/login', [
+    'title' => 'Login',
+    'errors' => ['User does not exist!']
+  ]);
   exit();
 }
