@@ -14,7 +14,8 @@ $note = $db->query('select * from notes where id = :id', [
 
 authorize($note['user_id'] !== $current_user_id, Response::NOT_FOUND);
 
-view('notes/show', [
-  'title' => "Note #{$note['id']}",
+view('notes/edit', [
+  'title' => 'Edit Note',
+  'errors' => [],
   'note' => $note
 ]);

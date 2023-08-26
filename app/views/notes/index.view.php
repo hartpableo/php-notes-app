@@ -12,11 +12,14 @@
     <a href="<?php echo "/note?id={$note['id']}"; ?>" style="display: block;">
       <?php echo htmlspecialchars($excerpt); ?>
     </a>
-    <form action="/note/delete" method="post">
-      <input type="hidden" name="id" value="<?php echo $note['id']; ?>">
-      <input type="hidden" name="_method" value="DELETE">
-      <button type="submit" style="border: 1px solid black;color: red;background: white;margin: .5em 0 0;cursor: pointer;">Delete</button>
-    </form>
+    <div style="margin: .5em 0 0;">
+      <form action="/note/delete" method="post" style="display: inline-block;vertical-align: middle;">
+        <input type="hidden" name="id" value="<?php echo $note['id']; ?>">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit" style="border: 1px solid black;color: red;background: white;cursor: pointer;">Delete</button>
+      </form>
+      <a href="/note/edit?id=<?php echo $note['id'] ?>" style="font-size: .8em;margin-left: .8em;font-weight: bold;text-decoration: underline;display: inline-block;vertical-align: middle;">Edit Note</a>
+    </div>
   </div>
 
 <?php endforeach; ?>

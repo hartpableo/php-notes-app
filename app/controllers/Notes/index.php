@@ -1,8 +1,9 @@
 <?php
 
+use Core\App;
 use Core\Database;
 
-$db = new Database();
+$db = App::resolve(Database::class);
 
 $current_user_id = 4;
 
