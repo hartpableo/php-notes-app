@@ -14,7 +14,7 @@ $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
  */
 
 //  Notes
-$router->get('/', 'Notes/index');
+$router->get('/', 'Notes/index')->only('test');
 $router->get('/note', 'Notes/show');
 $router->get('/notes/create', 'Notes/create')->only('auth');
 $router->post('/notes/create', 'Notes/store')->only('auth');
