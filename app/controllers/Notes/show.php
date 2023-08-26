@@ -10,4 +10,7 @@ $note = $db->query('select * from notes where id = :id', [
 
 authorize($note['user_id'] !== $current_user_id, Response::NOT_FOUND);
 
-require base_path('../views/notes/show.view.php');
+view('notes/show', [
+  'title' => "Note #{$note['id']}",
+  'note' => $note
+]);

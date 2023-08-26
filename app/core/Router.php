@@ -42,7 +42,7 @@ class Router
   {
     foreach ($this->routes as $route) {
       if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
-        return require base_path("../controllers/{$route['controller']}.php");
+        return require base_path("app/controllers/{$route['controller']}.php");
       }
     }
 

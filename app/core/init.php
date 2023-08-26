@@ -3,16 +3,16 @@
 // Class Autoloader
 spl_autoload_register(function ($className) {
   $classPath = str_replace('\\', DIRECTORY_SEPARATOR, $className);
-  $filePath = base_path("{$classPath}.php");
+  $filePath = base_path("app/core/{$classPath}.php");
 
   if (file_exists($filePath)) {
       require_once $filePath;
   }
 });
 
-require 'config.php';
-require 'Response.php';
-require 'functions.php';
-require 'Validator.php';
-require 'Router.php';
-require '../app/routes.php';
+require_once 'config.php';
+require_once 'Response.php';
+require_once 'functions.php';
+require_once 'Router.php';
+require_once 'Validator.php';
+require_once '../app/routes.php';

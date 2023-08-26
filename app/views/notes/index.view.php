@@ -1,6 +1,6 @@
 <?php get_template_part('header'); ?>
 
-<h1>Notes</h1>
+<h1><?php echo $title; ?></h1>
 
 <?php foreach ($notes as $note) : ?>
 

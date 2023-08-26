@@ -4,7 +4,7 @@ get_template_part('header');
 
 ?>
 
-<h1>Create Note</h1>
+<h1><?php echo $title; ?></h1>
 
 <?php 
   if (!empty($errors)) : 

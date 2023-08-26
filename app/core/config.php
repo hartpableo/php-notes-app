@@ -12,5 +12,7 @@ if (!defined($_SERVER['IS_DDEV_PROJECT']) || $_SERVER['IS_DDEV_PROJECT'] == 'fal
   require 'config.ddev.php';
 };
 
+define('BASE_PATH', realpath(__DIR__ . '/../../'));
+
 define('APP_NAME', 'PHP Framework');
 define('APP_DESC', 'A basic custom PHP framework following MVC.');
