@@ -5,7 +5,7 @@
 
 ## About the project
 
-This is a sample notes project implementing the MVC framework or paradigm in PHP.
+This is a simple notes app project implementing the MVC framework or paradigm in PHP.
 
 ## Contact Author
 
