@@ -17,3 +17,5 @@ $router->post('/notes/create', 'Notes/store');
 $router->delete('/note/delete', 'Notes/destroy');
 $router->get('/note/edit', 'Notes/edit');
 $router->patch('/note/edit', 'Notes/update');
+$router->get('/user/register', 'Users/register');
+$router->post('/user/register', 'Users/store');

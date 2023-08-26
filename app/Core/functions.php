@@ -50,3 +50,7 @@ function get_template_part($template_part) {
 function assetPath($path_to_file) {
   return ROOT . "/assets/{$path_to_file}";
 }
+
+function auth() {
+  return $_SESSION['user'] ?? false;
+}

@@ -40,6 +40,11 @@ class Router
     $this->add('PUT', $uri, $controller);
   }
 
+  public function only($key) 
+  {
+    dd($key);
+  }
+
   public function route($uri, $method)
   {
     foreach ($this->routes as $route) {
