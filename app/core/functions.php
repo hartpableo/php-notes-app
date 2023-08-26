@@ -7,6 +7,13 @@ function show($stuff) {
   die();
 }
 
+function dd($stuff) {
+  echo "<pre>";
+  var_dump($stuff);
+  echo "</pre>";
+  die();
+}
+
 function esc($str) {
   return htmlspecialchars($str);
 }
