@@ -46,3 +46,7 @@ function view($path, $attributes = []) {
 function get_template_part($template_part) {
   view("partials/{$template_part}");
 }
+
+function assetPath($path_to_file) {
+  return ROOT . "/assets/{$path_to_file}";
+}

@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+
+body {
+  font-family: sans-serif;
+  font-family: 'Nunito', sans-serif;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 45rem;
+}
+
+.btn {
+  display: inline-block;
+  vertical-align: middle;
+  padding: .5em 1.25em;
+  font-size: .85rem;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+}
+
+.btn--primary {
+  background-color: rgb(20, 20, 177);
+  color: #fff;
+}
+
+.btn--secondary {
+  background-color: rgb(187, 40, 40);
+  color: #fff;
+}
+
+.btn--neutral {
+  background-color: rgb(6, 163, 6);
+  color: #fff;
+}
