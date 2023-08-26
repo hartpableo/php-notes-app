@@ -1,4 +1,4 @@
-# Notes App (ongoing...)
+# Notes App
 
 > **Author:** Hart Pableo  
 > **Tech:** Object-Oriented PHP
