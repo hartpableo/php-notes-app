@@ -1,3 +1,13 @@
 <?php
 
+$db = new Database();
+
+$current_user_id = 4;
+
+$note = $db->query('select * from notes where id = :id', [
+  ':id' => $_GET['id'],
+])->findOrFail();
+
+authorize($note['user_id'] !== $current_user_id, Response::NOT_FOUND);
+
 require base_path('../views/notes/show.view.php');
