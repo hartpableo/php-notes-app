@@ -2,6 +2,13 @@
 
 <h1><?php echo $title; ?></h1>
 
+<?php if (isset($_SESSION['message'])) : ?>
+  <p style="color: red;font-size: .8em;margin: 0 0 .5em;padding: 1em .85em;background-color: green;color: white;">
+    <strong><?php echo $_SESSION['message']; ?></strong>
+  </p>
+  <?php unset($_SESSION['message']); ?>
+<?php endif; ?>
+
 <?php 
   if (!empty($errors)) : 
     foreach ($errors as $err) :

@@ -7,6 +7,7 @@ use Core\Validator;
 $db = App::resolve(Database::class);
 
 $current_user_id = getCurrentUserID();
+echo $current_user_id;
 
 $errors = [];
 

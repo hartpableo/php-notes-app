@@ -39,14 +39,7 @@ if ($user) {
     'password' => $password
   ]);
 
-  // Start session
-  $_SESSION['user'] = [
-    'id' => $user['id'],
-    'name' => $name,
-    'email' => $email,
-  ];
-
   // Redirect authenticated user
-  header("location: /");
+  redirect('/user/login', 'You have successfully registered your account! Now log in to continue...');
   exit();
 }

@@ -55,7 +55,8 @@ function auth() {
   return $_SESSION['user'] ?? false;
 }
 
-function redirect($path) {
+function redirect($path, $message = '') {
+  $_SESSION['message'] = $message;
   header("location: {$path}");
   exit();
 }
