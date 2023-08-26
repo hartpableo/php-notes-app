@@ -1,5 +1,8 @@
 <?php
 
+use Core\Database;
+use Core\Response;
+
 $db = new Database();
 
 $current_user_id = 4;

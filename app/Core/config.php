@@ -14,5 +14,5 @@ if (!defined($_SERVER['IS_DDEV_PROJECT']) || $_SERVER['IS_DDEV_PROJECT'] == 'fal
 
 define('BASE_PATH', realpath(__DIR__ . '/../../'));
 
-define('APP_NAME', 'PHP Framework');
-define('APP_DESC', 'A basic custom PHP framework following MVC.');
+define('APP_NAME', 'PHP Notes App | OOP');
+define('APP_DESC', 'A basic custom PHP notes app following the MVC framework.');

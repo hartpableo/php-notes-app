@@ -1,5 +1,7 @@
 <?php
 
+use Core\Response;
+
 function show($stuff) {
   echo "<pre>";
   print_r($stuff);
@@ -20,12 +22,12 @@ function esc($str) {
 
 function abort($status_code = Response::NOT_FOUND) {
   http_response_code($status_code);
-  return view("status_codes/{$status_code}");
+  view("status_codes/{$status_code}");
   die();
 }
 
 function authorize($condition, $status_code = Response::FORBIDDEN) {
-  if ($condition === true) abort($status_code);
+  if ($condition) abort($status_code);
 }
 
 function base_path($path = '') {
@@ -38,9 +40,9 @@ function urlIs($value) {
 
 function view($path, $attributes = []) {
   extract($attributes);
-  return require_once base_path("app/views/{$path}.view.php");
+  return require base_path("app/views/{$path}.view.php");
 }
 
 function get_template_part($template_part) {
-  return view("partials/{$template_part}");
+  view("partials/{$template_part}");
 }

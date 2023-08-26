@@ -1,5 +1,7 @@
 <?php
 
+use Core\Database;
+
 $db = new Database();
 
 $current_user_id = 4;
