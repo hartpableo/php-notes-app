@@ -1,5 +1,6 @@
 <?php
 
+use Core\Session;
 use Core\Authenticator;
 use Http\Forms\LoginForm;
 
@@ -13,16 +14,13 @@ $form = new LoginForm();
 if ($form->validateFields($name, $email, $password)) {
 
   // Validate User
-  if ((new Authenticator())->attempt($name, $email, $password)) {
-    redirect();
-  }
+  if ((new Authenticator())->attempt($name, $email, $password)) redirect();
 
   // If auth fails, redirect to login page with error
   $form->addError('auth_error', 'User does not exist!');
 
 }
 
-return view('users/login', [
-  'title' => 'Login',
-  'errors' => $form->getErrors()
-]);
+Session::flash('errors', $form->getErrors());
+
+return redirect('/user/login');
