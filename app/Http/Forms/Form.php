@@ -14,5 +14,12 @@ class Form
   public function addError($field, $message) 
   {
     $this->errors[$field] = $message;
+
+    return $this;
+  }
+
+  public function failed()
+  {
+    return count($this->getErrors());
   }
 }

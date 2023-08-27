@@ -4,32 +4,21 @@ use Core\Session;
 use Core\Authenticator;
 use Http\Forms\LoginForm;
 
-$name = $_POST['name'];
-$email = $_POST['email'];
-$password = $_POST['password'];
-
-// Validate Form
-$form = new LoginForm();
-
-if ($form->validateFields($name, $email, $password)) {
-
-  // Validate User
-  if ((new Authenticator())->attempt($name, $email, $password)) {
-    Session::flash('message', [
-      'logged_in' => 'You have successfully logged in!'
-    ]);    
-    redirect();
-  }
-
-  // If auth fails, redirect to login page with error
-  $form->addError('auth_error', 'User does not exist!');
-
-}
-
-Session::flash('errors', $form->getErrors());
-Session::flash('old', [
+$attributes = [
   'name' => $_POST['name'],
-  'email' => $_POST['email']
+  'email' => $_POST['email'],
+  'password' => $_POST['password']
+];
+
+$form = LoginForm::validate($attributes);
+
+$signedIn = (new Authenticator())->attempt($attributes['name'], $attributes['email'], $attributes['password']);
+
+// Validate User
+if (!$signedIn) $form->addError('errors', 'User does not exist!')->throw();
+
+Session::flash('message', [
+  'logged_in' => 'You have successfully logged in!'
 ]);
 
-return redirect('/user/login');
+redirect();

@@ -18,7 +18,7 @@ $password = $_POST['password'];
 // Validate user register
 $form = new RegistrationForm();
 
-if ($form->validateFields($name, $email, $password)) {
+if ($form->validate($name, $email, $password)) {
 
   // Validate email of user and cancel registration if email already exists
   if ((new Authenticator())->emailExists($email)) {

@@ -9,7 +9,7 @@ use Http\Forms\Form;
 
 class RegistrationForm extends Form
 {
-  public function validateFields($name, $email, $password)
+  public function validate($name, $email, $password)
   {
     if (!Validator::string($name, 2, INF)) $this->errors['name_error'] = 'Name is invalid!';
     if (!Validator::email($email)) $this->errors['email_error'] = 'Email is invalid!';
