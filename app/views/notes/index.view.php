@@ -1,8 +1,7 @@
 <?php
-
 use Core\Session;
-
- get_template_part('header'); ?>
+get_template_part('header'); 
+?>
 
 <?php if (auth()) : ?>
 

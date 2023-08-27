@@ -2,10 +2,12 @@
 
 namespace Http\Forms;
 
+use Core\App;
+use Core\Database;
 use Core\Validator;
 use Http\Forms\Form;
 
-class LoginForm extends Form
+class RegistrationForm extends Form
 {
   public function validateFields($name, $email, $password)
   {
@@ -14,5 +16,14 @@ class LoginForm extends Form
     if (!Validator::string($password, 7, 255)) $this->errors['password_error'] = 'Password is invalid!';
 
     return empty($this->errors);
+  }
+
+  public function register($name, $email, $password) 
+  {
+    App::resolve(Database::class)->query('INSERT INTO users(name, email, password) VALUES(:name, :email, :password)', [
+      ':name' => $name,
+      ':email' => $email,
+      ':password' => password_hash($password, PASSWORD_BCRYPT)
+    ]);
   }
 }

@@ -1,8 +1,11 @@
 <?php
 
 use Core\App;
+use Core\Session;
 use Core\Database;
 use Core\Validator;
+use Core\Authenticator;
+use Http\Forms\RegistrationForm;
 
 $db = App::resolve(Database::class);
 
@@ -12,34 +15,24 @@ $name = $_POST['name'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-if (!Validator::string($name, 2, INF)) $errors['name_error'] = 'Name is invalid!';
-if (!Validator::email($email)) $errors['email_error'] = 'Email is invalid!';
-if (!Validator::string($password, 7, 255)) $errors['password_error'] = 'Password is invalid!';
+// Validate user register
+$form = new RegistrationForm();
 
-if (!empty($errors)) {
-  return view('user/register', [
-    'title' => 'Register',
-    'errors' => $errors
-  ]);
-}
+if ($form->validateFields($name, $email, $password)) {
 
-// Check if email already exists
-$user = $db->query('select * from users where email = :email', [
-  ':email' => $email
-])->find();
+  // Validate email of user and cancel registration if email already exists
+  if ((new Authenticator())->emailExists($email)) {
+    $form->addError('auth_error', 'Email is already in use!');
+    Session::flash('errors', $form->getErrors());
+    redirect('/user/register');
+  }
 
-if ($user) {
-  header('location: /');
-  exit();
-} else {
-  // Register
-  $db->query('INSERT INTO users(name, email, password) VALUES(:name, :email, :password)', [
-    'name' => $name,
-    'email' => $email,
-    'password' => password_hash($password, PASSWORD_BCRYPT)
+  // Register new user if email is unique
+  $form->register($name, $email, $password);
+  Session::flash('message', [
+    'registered' => 'You have successfully registered! Log in to continue.'
   ]);
 
-  // Redirect authenticated user
-  redirect('/user/login', 'You have successfully registered your account! Now log in to continue...');
-  exit();
+  redirect('/user/login');
+  
 }

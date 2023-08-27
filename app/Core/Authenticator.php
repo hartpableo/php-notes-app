@@ -27,6 +27,15 @@ class Authenticator
     }
   }
 
+  public function emailExists($email)
+  {
+    $user = App::resolve(Database::class)->query('select * from users where email = :email', [
+      ':email' => $email
+    ])->find();
+
+    if ($user) return true;
+  }
+
   public function login($user = []) {
     Session::put('user', $user);
     session_regenerate_id(true);
