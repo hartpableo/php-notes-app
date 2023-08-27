@@ -14,7 +14,12 @@ $form = new LoginForm();
 if ($form->validateFields($name, $email, $password)) {
 
   // Validate User
-  if ((new Authenticator())->attempt($name, $email, $password)) redirect();
+  if ((new Authenticator())->attempt($name, $email, $password)) {
+    Session::flash('message', [
+      'logged_in' => 'You have successfully logged in!'
+    ]);    
+    redirect();
+  }
 
   // If auth fails, redirect to login page with error
   $form->addError('auth_error', 'User does not exist!');

@@ -1,8 +1,18 @@
-<?php get_template_part('header'); ?>
+<?php
+
+use Core\Session;
+
+ get_template_part('header'); ?>
 
 <?php if (auth()) : ?>
 
   <h1><?php echo $title; ?></h1>
+
+  <?php if (Session::has('message', 'logged_in')) : ?>
+    <div class="message message--welcome">
+      <?php echo Session::get('message')['logged_in']; ?>
+    </div>
+  <?php endif; ?>
 
   <?php if (!empty($notes)) : ?>
     

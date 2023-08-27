@@ -93,3 +93,16 @@ footer {
   background-color: #666;
   color: #fff;
 }
+
+.message {
+  font-weight: 500;
+  font-size: .8rem;
+  padding: 1em;
+  margin-bottom: 1.5em;
+  border-radius: 8px;
+}
+
+.message--welcome {
+  background-color: green;
+  color: #fff;
+}
