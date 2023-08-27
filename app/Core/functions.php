@@ -64,3 +64,30 @@ function redirect($path, $message = '') {
 function getCurrentUserID() {
   return $_SESSION['user']['id'] ?? null;
 }
+
+function login($user = [], $redirect_to = '/') {
+  $_SESSION['user'] = $user;
+  session_regenerate_id(true);
+
+  redirect($redirect_to);
+  exit();
+}
+
+function logout($redirect_to = '/') {
+  session_unset();
+  session_destroy();
+
+  $params = session_get_cookie_params();
+  setcookie(
+    'PHPSESSID', 
+    '', 
+    time() - 3600, 
+    $params['path'], 
+    $params['domain'], 
+    $params['secure'], 
+    $params['httponly']
+  );
+
+  redirect($redirect_to);
+  exit();
+}

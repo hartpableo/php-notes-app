@@ -28,16 +28,12 @@ $user = $db->query('select * from users where email = :email', [
   ':email' => $email
 ])->find();
 
-if (!empty($user) && $user['name'] === $name && $user['password'] === $password) {
-  // Start session
-  $_SESSION['user'] = [
+if (!empty($user) && $user['name'] === $name && password_verify($password, $user['password'])) {
+  login([
     'id' => $user['id'],
     'name' => $name,
     'email' => $email,
-  ];
-
-  redirect('/');
-  exit();
+  ]);
 } else {
   return view('users/login', [
     'title' => 'Login',
