@@ -1,4 +1,6 @@
-<?php get_template_part('header'); ?>
+<?php 
+  get_template_part('header'); 
+?>
 
 <h1><?php echo $title; ?></h1>
 
@@ -23,11 +25,11 @@
 <form method="POST">
   <p>
     <label for="name">Name:</label><br>
-    <input type="text" name="name" id="name" value="<?php echo $_POST['name'] ?? '' ?>">
+    <input type="text" name="name" id="name" value="<?php echo old('name'); ?>">
   </p>
   <p>
     <label for="email">Email Address:</label><br>
-    <input type="email" name="email" id="email" value="<?php echo $_POST['email'] ?? '' ?>">
+    <input type="email" name="email" id="email" value="<?php echo old('email'); ?>">
   </p>
   <p>
     <label for="password">Password:</label><br>

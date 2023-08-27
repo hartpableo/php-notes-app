@@ -1,6 +1,7 @@
 <?php
 
 use Core\Response;
+use Core\Session;
 
 function show($stuff) {
   echo "<pre>";
@@ -62,4 +63,8 @@ function redirect($path = '/') {
 
 function getCurrentUserID() {
   return $_SESSION['user']['id'] ?? null;
+}
+
+function old($key, $default = '') {
+  return Session::get('old')[$key] ?? $default;
 }
