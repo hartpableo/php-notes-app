@@ -1,0 +1,17 @@
+{
+    "name": "hartpableo/notes-app",
+    "description": "a basic oop php notes app",
+    "authors": [
+        {
+            "name": "Hart Pableo",
+            "email": "pableoh@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\": "app/Core/",
+            "Http\\": "app/Http/"
+        }
+    }
+}
