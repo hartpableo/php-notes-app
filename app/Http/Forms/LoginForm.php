@@ -8,7 +8,7 @@ class LoginForm
 {
   protected $errors = [];
 
-  public function validate($name, $email, $password)
+  public function validateFields($name, $email, $password)
   {
     if (!Validator::string($name, 2, INF)) $this->errors['name_error'] = 'Name is invalid!';
     if (!Validator::email($email)) $this->errors['email_error'] = 'Email is invalid!';
@@ -20,5 +20,10 @@ class LoginForm
   public function getErrors()
   {
     return $this->errors;
+  }
+
+  public function addError($field, $message) 
+  {
+    $this->errors[$field] = $message;
   }
 }
