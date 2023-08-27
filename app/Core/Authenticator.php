@@ -29,8 +29,6 @@ class Authenticator
   public function login($user = []) {
     $_SESSION['user'] = $user;
     session_regenerate_id(true);
-
-    exit();
   }
   
   public function logout() {
@@ -47,7 +45,5 @@ class Authenticator
       $params['secure'], 
       $params['httponly']
     );
-
-    exit();
   }
 }
