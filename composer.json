@@ -7,11 +7,21 @@
             "email": "pableoh@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "illuminate/collections": "^10.20"
+    },
     "autoload": {
         "psr-4": {
             "Core\\": "app/Core/",
             "Http\\": "app/Http/"
+        }
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.16"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
         }
     }
 }
